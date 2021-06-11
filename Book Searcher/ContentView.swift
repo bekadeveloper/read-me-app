@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel: BookData
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        NavigationView {
+            List {
+                ForEach(viewModel.books) { book in
+                    Text(book.volumeInfo.title)
+                }
+            }
+            .navigationBarTitle(Text("Books📚"))
+            .listStyle(SidebarListStyle())
+            .onAppear { viewModel.getBooks() }
+        }
     }
 }
