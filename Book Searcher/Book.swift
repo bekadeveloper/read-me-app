@@ -8,8 +8,6 @@
 import Foundation
 
 struct Response: Decodable {
-//    var kind: String
-//    var totalItems: Int
     var items: [Book]
     
     struct Book: Decodable, Identifiable {
@@ -18,9 +16,9 @@ struct Response: Decodable {
         
         struct VolumeInfo: Decodable {
             var title: String
-//            var authors: [String]
-//            var publisher: String
-//            var description: String
+            var authors: [String]?
+            var publisher: String?
+            var description: String?
             var imageLinks: ImageLinks
             
             struct ImageLinks: Decodable {
@@ -35,8 +33,8 @@ class BookData: ObservableObject {
     @Published var books: [Response.Book] = []
     
     
-    func getBooks() {
-            guard let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=programming") else { fatalError("Missing URL") }
+    func getBooks(containing text: String = "programming") {
+            guard let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(text)") else { fatalError("Missing URL") }
 
             let urlRequest = URLRequest(url: url)
 
@@ -50,7 +48,6 @@ class BookData: ObservableObject {
 
                 if response.statusCode == 200 {
                     guard let data = data else { return }
-//                    print(String(data: data, encoding: .utf8)!)
                     
                     DispatchQueue.main.async {
                         do {
