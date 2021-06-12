@@ -1,40 +1,19 @@
 //
-//  Book.swift
+//  BookData.swift
 //  Book Searcher
 //
-//  Created by Begzod on 11/06/21.
+//  Created by Begzod on 12/06/21.
 //
 
 import Foundation
 
-struct Response: Decodable {
-    var items: [Book]
-    
-    struct Book: Decodable, Identifiable {
-        var id: String
-        var volumeInfo: VolumeInfo
-        
-        struct VolumeInfo: Decodable {
-            var title: String
-            var authors: [String]?
-            var publisher: String?
-            var description: String?
-            var imageLinks: ImageLinks
-            
-            struct ImageLinks: Decodable {
-                var smallThumbnail: String
-                var thumbnail: String
-            }
-        }
-    }
-}
-
 class BookData: ObservableObject {
+    
     @Published var books: [Response.Book] = []
     
     
     func getBooks(containing text: String = "programming") {
-            guard let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(text)") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(text.replacingOccurrences(of: " ", with: "%20"))") else { fatalError("Missing URL") }
 
             let urlRequest = URLRequest(url: url)
 

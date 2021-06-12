@@ -19,14 +19,12 @@ struct ContentView: View {
                 
                 List {
                     ForEach(viewModel.books) { book in
-                        NavigationLink(destination: BookDetailView(for: book)) {
-                            Text(book.volumeInfo.title)
-                        }
+                        CellView(for: book)
                     }
                 }
                 .navigationBarTitle(Text("Books📚"))
                 .listStyle(InsetListStyle())
-                .onAppear { viewModel.getBooks() }
+                .onAppear { !searchingText.isEmpty ? viewModel.getBooks(containing: searchingText) : viewModel.getBooks() }
                 .onChange(of: searchingText) { _ in
                     !searchingText.isEmpty ? viewModel.getBooks(containing: searchingText) : viewModel.getBooks()
                 }
