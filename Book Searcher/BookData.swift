@@ -11,7 +11,6 @@ class BookData: ObservableObject {
     
     @Published var books: [Response.Book] = []
     
-    
     func getBooks(containing text: String = "programming") {
         guard let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(text.replacingOccurrences(of: " ", with: "%20"))") else { fatalError("Missing URL") }
 

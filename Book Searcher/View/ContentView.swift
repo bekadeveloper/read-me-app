@@ -6,23 +6,26 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct ContentView: View {
     @ObservedObject var viewModel: BookData
     @State private var searchingText: String = ""
+    @State var isEditing: Bool = false
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                SearchBarView(searchingText: $searchingText)
-                    .padding(.horizontal, 10)
+                SearchBar("Search...", text: $searchingText, isEditing: $isEditing)
+                    .showsCancelButton(isEditing)
+                    .onCancel { searchingText = "" }
                 
                 List {
                     ForEach(viewModel.books) { book in
                         CellView(for: book)
                     }
                 }
-                .navigationBarTitle(Text("Books📚"))
+                .navigationTitle(Text("Books📚"))
                 .listStyle(InsetListStyle())
                 .onAppear { !searchingText.isEmpty ? viewModel.getBooks(containing: searchingText) : viewModel.getBooks() }
                 .onChange(of: searchingText) { _ in
