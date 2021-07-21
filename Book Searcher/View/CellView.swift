@@ -19,13 +19,7 @@ struct CellView: View {
     var body: some View {
         NavigationLink(destination: BookDetailView(for: book, image: bookThumbnail)) {
             LazyHStack(alignment: .top) {
-                Image(uiImage: bookThumbnail ?? UIImage())
-                    .resizable()
-                    .aspectRatio(2/3, contentMode: .fit)
-                    .frame(width: 75)
-                    .foregroundColor(.secondary)
-                    .cornerRadius(7)
-                    .padding(.trailing)
+                ThumbnailCover(bookThumbnail: bookThumbnail)
                 
                 LazyVStack(alignment: .leading) {
                     Text(book.volumeInfo.title).font(.headline)

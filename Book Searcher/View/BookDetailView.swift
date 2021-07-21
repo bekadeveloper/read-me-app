@@ -19,11 +19,7 @@ struct BookDetailView: View {
     var body: some View {
         Form {
             HStack(alignment: .top) {
-                Image(uiImage: bookThumbnail ?? UIImage())
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 125)
-                    .cornerRadius(7)
+                ThumbnailCover(bookThumbnail: bookThumbnail, width: 95)
 
                 VStack(alignment: .leading) {
                     Text(book.volumeInfo.title).font(.title2).bold()
