@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct Book_SearcherApp: App {
-    let data = BookData()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: data)
+            ContentView()
         }
     }
 }

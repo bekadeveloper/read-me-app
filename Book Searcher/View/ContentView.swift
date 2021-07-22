@@ -2,36 +2,30 @@
 //  ContentView.swift
 //  Book Searcher
 //
-//  Created by Begzod on 11/06/21.
+//  Created by Beka on 22/07/21.
 //
 
 import SwiftUI
-import SwiftUIX
 
 struct ContentView: View {
-    @ObservedObject var viewModel: BookData
-    @State private var searchingText: String = ""
-    @State var isEditing: Bool = false
+    let data = BookData()
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                SearchBar("Search...", text: $searchingText, isEditing: $isEditing)
-                    .showsCancelButton(isEditing)
-                    .onCancel { searchingText = "" }
-                
-                List {
-                    ForEach(viewModel.books) { book in
-                        CellView(for: book)
-                    }
+        TabView {
+            FinderView(viewModel: data)
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
                 }
-                .navigationTitle(Text("Books📚"))
-                .listStyle(InsetListStyle())
-                .onAppear { !searchingText.isEmpty ? viewModel.getBooks(containing: searchingText) : viewModel.getBooks() }
-                .onChange(of: searchingText) { _ in
-                    !searchingText.isEmpty ? viewModel.getBooks(containing: searchingText) : viewModel.getBooks()
+            FavoritesView()
+                .tabItem {
+                    Image(systemName: "bookmark.fill")
                 }
-            }
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
