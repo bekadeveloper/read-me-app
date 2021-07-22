@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     let data = BookData()
     
     var body: some View {
@@ -21,11 +22,12 @@ struct ContentView: View {
                     Image(systemName: "bookmark.fill")
                 }
         }
+        .environment(\.managedObjectContext, viewContext)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

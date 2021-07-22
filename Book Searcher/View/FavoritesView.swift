@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Book.title, ascending: true)])
+    private var books: FetchedResults<Book>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Button("Add") {
+                let book = Book(context: viewContext)
+                book.id = UUID()
+                book.title = "Book no. \(book.id!.uuidString.first!)"
+                try? viewContext.save()
+            }
+            ForEach(books) { book in
+                Text(book.title ?? "unknown")
+            }
+        }
     }
 }
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView()
+        FavoritesView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
