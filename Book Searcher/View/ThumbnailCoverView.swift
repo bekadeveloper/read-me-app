@@ -25,7 +25,8 @@ struct ThumbnailCover: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)
                 .padding()
-                .foregroundColor(.secondaryLabel)
+                .foregroundColor(.accentColor)
+                .opacity(0.8)
         }
     }
 }

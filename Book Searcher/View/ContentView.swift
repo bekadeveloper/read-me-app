@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     let data = BookData()
     
     var body: some View {
@@ -17,12 +16,12 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }
+                .statusBar(hidden: true)
             FavoritesView()
                 .tabItem {
-                    Image(systemName: "bookmark.fill")
+                    Image(systemName: "books.vertical.fill")
                 }
         }
-        .environment(\.managedObjectContext, viewContext)
     }
 }
 

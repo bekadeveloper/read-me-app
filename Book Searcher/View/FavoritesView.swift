@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     
+    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Book.title, ascending: true)])
     private var books: FetchedResults<Book>
     
