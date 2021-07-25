@@ -25,8 +25,8 @@ struct FinderView: View {
                         CellView(for: book)
                     }
                 }
-                .navigationTitle(Text("Books📚"))
-                .listStyle(InsetListStyle())
+                .navigationTitle(Text("Search Books"))
+                .listStyle(PlainListStyle())
                 .onAppear { !searchingText.isEmpty ? viewModel.getBooks(containing: searchingText) : viewModel.getBooks() }
                 .onChange(of: searchingText) { _ in
                     !searchingText.isEmpty ? viewModel.getBooks(containing: searchingText) : viewModel.getBooks()

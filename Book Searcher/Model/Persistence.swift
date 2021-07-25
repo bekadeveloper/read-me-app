@@ -15,8 +15,8 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for _ in 0..<5 {
             let newBook = Book(context: viewContext)
-            newBook.id = UUID()
-            newBook.title = "Book: \(newBook.id!.uuidString.first!)"
+            newBook.stringID = String(Int.random(in: 0...99))
+            newBook.title = "Book: \(newBook.stringID!)"
         }
         do {
             try viewContext.save()

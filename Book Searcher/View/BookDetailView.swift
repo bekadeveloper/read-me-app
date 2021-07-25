@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BookDetailView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     let book: Response.Book
     let bookThumbnail: UIImage?
     
@@ -24,24 +26,24 @@ struct BookDetailView: View {
 
                     VStack(alignment: .leading) {
                         Text(book.volumeInfo.title).font(.title2).bold()
-                        Text(book.volumeInfo.authors?.first ?? "Unknown Author").font(.body)
+                        Text(book.volumeInfo.authors?.first ?? "Unknown author(s)")
                     }
                 }
                 .padding(.vertical)
                 
                 Section(header: Text("Publisher")) {
-                    Text(book.volumeInfo.publisher ?? "Unknown Publisher")
+                    Text(book.volumeInfo.publisher ?? "Unknown publisher")
                 }
                 
                 Section(header: Text("Description")) {
-                    Text(book.volumeInfo.description ?? "No Description").font(.body)
+                    Text(book.volumeInfo.description ?? "No description")
                 }
             }
             
             VStack {
                 Spacer()
-                Button(action: {} ) {
-                    LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.6984999776, blue: 0.5462449789, alpha: 1)), Color(#colorLiteral(red: 0.9946357608, green: 0.266684562, blue: 0.3067400753, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                Button(action: addBookToShelf) {
+                    LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.6984999776, blue: 0.5462449789, alpha: 1)), Color(#colorLiteral(red: 0.9960784314, green: 0.266684562, blue: 0.3067400753, alpha: 0.9506674255))]), startPoint: .topLeading, endPoint: .bottomTrailing)
                         .frame(width: 330, height: 50)
                         .cornerRadius(20)
                         .overlay {
@@ -53,7 +55,18 @@ struct BookDetailView: View {
                 .padding(.bottom, 20)
             }
         }
-//        .edgesIgnoringSafeArea(.all)
+    }
+    
+    private func addBookToShelf() {
+        let newBook = Book(context: viewContext)
+        
+        newBook.stringID = book.id
+        newBook.title = book.volumeInfo.title
+        newBook.author = book.volumeInfo.authors?[0]
+        newBook.descript = book.volumeInfo.description
+        newBook.publisher = book.volumeInfo.publisher
+        
+        try? viewContext.save()
     }
 }
 

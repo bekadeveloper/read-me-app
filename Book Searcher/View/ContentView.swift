@@ -16,7 +16,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }
-                .statusBar(hidden: true)
+            
             FavoritesView()
                 .tabItem {
                     Image(systemName: "books.vertical.fill")
@@ -25,8 +25,3 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}

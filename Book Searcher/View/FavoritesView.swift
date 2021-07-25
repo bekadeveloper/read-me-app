@@ -14,17 +14,22 @@ struct FavoritesView: View {
     private var books: FetchedResults<Book>
     
     var body: some View {
-        List {
-            Button("Add") {
-                let book = Book(context: viewContext)
-                book.id = UUID()
-                book.title = "Book no. \(book.id!.uuidString.first!)"
-                try? viewContext.save()
+        NavigationView {
+            List {
+                ForEach(books, id: \.stringID) { book in
+                    Text(book.title ?? "unknown")
+                }
+                .onDelete(perform: deleteBooksFromShelf)
             }
-            ForEach(books) { book in
-                Text(book.title ?? "unknown")
-            }
+            .navigationBarTitle(Text("Saved Books"))
+            .listStyle(SidebarListStyle())
+            .toolbar(content: { EditButton() })
         }
+    }
+    
+    private func deleteBooksFromShelf(_ offset: IndexSet) {
+        offset.map { books[$0] }.forEach { viewContext.delete($0) }
+        try? viewContext.save()
     }
 }
 
