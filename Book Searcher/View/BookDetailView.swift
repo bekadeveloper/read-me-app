@@ -65,6 +65,7 @@ struct BookDetailView: View {
         newBook.author = book.volumeInfo.authors?[0]
         newBook.descript = book.volumeInfo.description
         newBook.publisher = book.volumeInfo.publisher
+        newBook.thumbnail = bookThumbnail?.pngData()
         
         try? viewContext.save()
     }

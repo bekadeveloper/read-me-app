@@ -5,9 +5,10 @@
         <attribute name="descript" optional="YES" attributeType="String"/>
         <attribute name="publisher" optional="YES" attributeType="String"/>
         <attribute name="stringID" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Book" positionX="-300.828125" positionY="-69.6796875" width="128" height="104"/>
+        <element name="Book" positionX="-300.828125" positionY="-69.6796875" width="128" height="119"/>
     </elements>
 </model>
