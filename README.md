@@ -1,4 +1,4 @@
-# Book Finder 📚
+# ReadMe 📚
 
 A book searching app built using the Google Books API
 - Pure SwiftUI App lifecycle.
