@@ -78,7 +78,7 @@ struct SubView: View {
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .frame(width: 120)
+        .frame(width: 110)
         .aspectRatio(2/3, contentMode: .fit)
     }
 }

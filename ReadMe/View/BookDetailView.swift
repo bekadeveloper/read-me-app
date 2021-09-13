@@ -49,7 +49,7 @@ struct BookDetailView: View {
                         .overlay {
                             Text("Add to the shelf")
                                 .foregroundColor(.white)
-                                .font(.system(size: 25, weight: .regular, design: .default))
+                                .font(.system(size: 22, weight: .semibold, design: .rounded))
                         }
                 }
                 .padding(.bottom, 20)

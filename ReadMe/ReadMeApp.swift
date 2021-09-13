@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Book_SearcherApp: App {
+struct ReadMeApp: App {
     let persistence = PersistenceController.shared
     
     var body: some Scene {

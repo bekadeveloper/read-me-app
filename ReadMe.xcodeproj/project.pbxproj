@@ -15,7 +15,7 @@
 		E945BEB72674784C00C518E5 /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945BEB62674784C00C518E5 /* BookData.swift */; };
 		E9DC794B26A9C1360001B5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC794A26A9C1360001B5A6 /* ContentView.swift */; };
 		E9DC794D26A9C2150001B5A6 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC794C26A9C2150001B5A6 /* FavoritesView.swift */; };
-		E9F32E6A2673858900859589 /* Book_SearcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F32E692673858900859589 /* Book_SearcherApp.swift */; };
+		E9F32E6A2673858900859589 /* ReadMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F32E692673858900859589 /* ReadMeApp.swift */; };
 		E9F32E6C2673858900859589 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F32E6B2673858900859589 /* FinderView.swift */; };
 		E9F32E6E2673858900859589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F32E6D2673858900859589 /* Assets.xcassets */; };
 		E9F32E712673858900859589 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F32E702673858900859589 /* Preview Assets.xcassets */; };
@@ -31,8 +31,8 @@
 		E945BEB62674784C00C518E5 /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
 		E9DC794A26A9C1360001B5A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E9DC794C26A9C2150001B5A6 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		E9F32E662673858900859589 /* Book Searcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Searcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9F32E692673858900859589 /* Book_SearcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_SearcherApp.swift; sourceTree = "<group>"; };
+		E9F32E662673858900859589 /* ReadMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9F32E692673858900859589 /* ReadMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeApp.swift; sourceTree = "<group>"; };
 		E9F32E6B2673858900859589 /* FinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderView.swift; sourceTree = "<group>"; };
 		E9F32E6D2673858900859589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9F32E702673858900859589 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -59,7 +59,6 @@
 				E9F32E782673875400859589 /* Model.swift */,
 				E945BEB62674784C00C518E5 /* BookData.swift */,
 				E937B18226A9CEFE00183FD3 /* Persistence.swift */,
-				E937B17E26A9CE1400183FD3 /* BookDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,7 +79,7 @@
 		E9F32E5D2673858900859589 = {
 			isa = PBXGroup;
 			children = (
-				E9F32E682673858900859589 /* Book Searcher */,
+				E9F32E682673858900859589 /* ReadMe */,
 				E9F32E672673858900859589 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,22 +87,23 @@
 		E9F32E672673858900859589 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E9F32E662673858900859589 /* Book Searcher.app */,
+				E9F32E662673858900859589 /* ReadMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E9F32E682673858900859589 /* Book Searcher */ = {
+		E9F32E682673858900859589 /* ReadMe */ = {
 			isa = PBXGroup;
 			children = (
+				E9F32E692673858900859589 /* ReadMeApp.swift */,
 				E945BEB8267490DD00C518E5 /* View */,
 				E937B18126A9CE8C00183FD3 /* Model */,
-				E9F32E692673858900859589 /* Book_SearcherApp.swift */,
 				E9F32E6D2673858900859589 /* Assets.xcassets */,
 				E9F32E722673858900859589 /* Info.plist */,
+				E937B17E26A9CE1400183FD3 /* BookDataModel.xcdatamodeld */,
 				E9F32E6F2673858900859589 /* Preview Content */,
 			);
-			path = "Book Searcher";
+			path = ReadMe;
 			sourceTree = "<group>";
 		};
 		E9F32E6F2673858900859589 /* Preview Content */ = {
@@ -117,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E9F32E652673858900859589 /* Book Searcher */ = {
+		E9F32E652673858900859589 /* ReadMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9F32E752673858900859589 /* Build configuration list for PBXNativeTarget "Book Searcher" */;
+			buildConfigurationList = E9F32E752673858900859589 /* Build configuration list for PBXNativeTarget "ReadMe" */;
 			buildPhases = (
 				E9F32E622673858900859589 /* Sources */,
 				E9F32E632673858900859589 /* Frameworks */,
@@ -129,12 +129,12 @@
 			);
 			dependencies = (
 			);
-			name = "Book Searcher";
+			name = ReadMe;
 			packageProductDependencies = (
 				E933780226A872C400DD9277 /* SwiftUIX */,
 			);
 			productName = "Book Searcher";
-			productReference = E9F32E662673858900859589 /* Book Searcher.app */;
+			productReference = E9F32E662673858900859589 /* ReadMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -151,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E9F32E612673858900859589 /* Build configuration list for PBXProject "Book Searcher" */;
+			buildConfigurationList = E9F32E612673858900859589 /* Build configuration list for PBXProject "ReadMe" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -167,7 +167,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E9F32E652673858900859589 /* Book Searcher */,
+				E9F32E652673858900859589 /* ReadMe */,
 			);
 		};
 /* End PBXProject section */
@@ -197,7 +197,7 @@
 				E9F32E6C2673858900859589 /* FinderView.swift in Sources */,
 				E945BEB5267476FB00C518E5 /* CellView.swift in Sources */,
 				E9F32E7D2673B85600859589 /* BookDetailView.swift in Sources */,
-				E9F32E6A2673858900859589 /* Book_SearcherApp.swift in Sources */,
+				E9F32E6A2673858900859589 /* ReadMeApp.swift in Sources */,
 				E9F32E792673875400859589 /* Model.swift in Sources */,
 				E9DC794D26A9C2150001B5A6 /* FavoritesView.swift in Sources */,
 			);
@@ -328,16 +328,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Book Searcher/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ReadMe/Preview Content\"";
 				DEVELOPMENT_TEAM = 867N93C454;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Book Searcher/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ReadMe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "bekadeveloper.Book-Searcher";
+				PRODUCT_BUNDLE_IDENTIFIER = bekadeveloper.ReadMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -350,16 +350,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Book Searcher/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ReadMe/Preview Content\"";
 				DEVELOPMENT_TEAM = 867N93C454;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Book Searcher/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ReadMe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "bekadeveloper.Book-Searcher";
+				PRODUCT_BUNDLE_IDENTIFIER = bekadeveloper.ReadMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -369,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E9F32E612673858900859589 /* Build configuration list for PBXProject "Book Searcher" */ = {
+		E9F32E612673858900859589 /* Build configuration list for PBXProject "ReadMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9F32E732673858900859589 /* Debug */,
@@ -378,7 +378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9F32E752673858900859589 /* Build configuration list for PBXNativeTarget "Book Searcher" */ = {
+		E9F32E752673858900859589 /* Build configuration list for PBXNativeTarget "ReadMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9F32E762673858900859589 /* Debug */,
